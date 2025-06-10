@@ -9,7 +9,7 @@ on:
 jobs:
   build-test:
     name: CI - Build and Test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -35,7 +35,8 @@ jobs:
   deploy:
     name: CD - Deploy to Minikube
     needs: build-test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

@@ -131,3 +131,5 @@
 [2025-06-10 15:08:59Z INFO Terminal] WRITE LINE: Current runner version: '2.325.0'
 [2025-06-10 15:08:59Z INFO Terminal] WRITE LINE: 2025-06-10 15:08:59Z: Listening for Jobs
 [2025-06-10 15:08:59Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2025-06-10 15:59:09Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/aleksandra/Documents/DevOps/exam/actions-runner/.credentials_rsaparams
+[2025-06-10 15:59:10Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown

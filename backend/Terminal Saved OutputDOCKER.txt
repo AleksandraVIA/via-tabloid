@@ -1,0 +1,47 @@
+Last login: Sun Jun  8 15:10:29 on ttys000
+(base) aleksandra@MacBook-Pro-Aleksandra-2 ~ % cd ~/Documents/Devops/exam/backend
+
+(base) aleksandra@MacBook-Pro-Aleksandra-2 backend % touch Dockerfile
+
+(base) aleksandra@MacBook-Pro-Aleksandra-2 backend % nano Dockerfile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  UW PICO 5.09                    File: Dockerfile                    Modified  
+
+FROM openjdk:21-jdk-slim
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell  

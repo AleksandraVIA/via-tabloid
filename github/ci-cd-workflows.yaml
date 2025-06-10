@@ -1,0 +1,67 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test:
+    name: CI - Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: "21"
+          distribution: "temurin"
+
+      - name: Build Spring Boot app
+        run: |
+          cd backend
+          ./mvnw clean install
+
+      - name: Build frontend app
+        run: |
+          cd frontend
+          npm install
+          npm run build
+
+  deploy:
+    name: CD - Deploy to Minikube
+    needs: build-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Minikube
+        uses: medyagh/setup-minikube@latest
+
+      - name: Start Minikube
+        run: minikube start --driver=docker
+
+      - name: Build Docker images inside Minikube
+        run: |
+          eval $(minikube -p minikube docker-env)
+          docker build -t backend:latest ./backend
+          docker build -t frontend:latest ./frontend
+
+      - name: Apply Kubernetes configuration
+        run: |
+          kubectl apply -f k8s/postgres-pv.yaml
+          kubectl apply -f k8s/postgres-pvc.yaml
+          kubectl apply -f k8s/deployment-postgres.yaml
+          kubectl apply -f k8s/deployment-backend.yaml
+          kubectl apply -f k8s/service-backend.yaml
+          kubectl apply -f k8s/deployment-frontend.yaml
+          kubectl apply -f k8s/service-frontend.yaml
+
+      - name: Verify deployments
+        run: kubectl get pods

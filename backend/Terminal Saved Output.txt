@@ -1,0 +1,45 @@
+Last login: Fri Jun  6 14:34:29 on console
+(base) aleksandra@MacBook-Pro-Aleksandra-2 ~ % docker --version
+java -version
+node -v
+npm -v
+
+Docker version 27.5.1, build 9f9e405
+openjdk version "21.0.5" 2024-10-15 LTS
+OpenJDK Runtime Environment Temurin-21.0.5+11 (build 21.0.5+11-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.5+11 (build 21.0.5+11-LTS, mixed mode, sharing)
+v22.13.1
+10.9.2
+(base) aleksandra@MacBook-Pro-Aleksandra-2 ~ % cd ~/Documents/Devops/exam/backend
+
+(base) aleksandra@MacBook-Pro-Aleksandra-2 backend % mkdir -p src/main/java/com/example/backend
+nano src/main/java/com/example/backend/HelloController.java
+
+
+
+
+
+  File: src/main/java/com/example/backend/HelloController.java        Modified  
+
+package com.example.backend;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+    @GetMapping("/")
+    public String hello() {
+        return "Hello, world!";
+    }
+}
+
+
+
+
+
+
+
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell  

@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "MacBook-Pro-Aleksandra-2",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus9.actions.githubusercontent.com/nY11yqjea1kP6aooVdFKDwmOABLfc46VzTth6dKMUfUTwfmN0x/",
+  "gitHubUrl": "https://github.com/AleksandraVIA/via-tabloid",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
